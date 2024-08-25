@@ -141,9 +141,19 @@ public class ScientificCalculatorGui extends javax.swing.JFrame {
 
         jButton6.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
         jButton6.setText("FLR");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
         jButton7.setText("CEIl");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
         jButton8.setText("INT");
@@ -305,6 +315,11 @@ public class ScientificCalculatorGui extends javax.swing.JFrame {
 
         jButton29.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         jButton29.setText("∛");
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
 
         jButton30.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         jButton30.setText("FLR");
@@ -473,8 +488,8 @@ public class ScientificCalculatorGui extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton34, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -778,45 +793,45 @@ public class ScientificCalculatorGui extends javax.swing.JFrame {
         {
             result = firstNum + secondNum;
             answer = String.format("%.1f" , result);
-            jTextField2.setText (String.valueOf(firstNum)+ "+" + String.valueOf(secondNum));
-            jTextField1.setText(answer);
+            jTextField1.setText (String.valueOf(firstNum)+ "+" + String.valueOf(secondNum));
+            jTextField2.setText(answer);
         }
         else if (" - ".equals(operation)) 
         {
             result = firstNum - secondNum;
             answer = String.format("%.1f", result);
-            jTextField2.setText (String.valueOf(firstNum) + "-" + String.valueOf(secondNum));
-            jTextField1.setText(answer);
+            jTextField1.setText (String.valueOf(firstNum) + "-" + String.valueOf(secondNum));
+            jTextField2.setText(answer);
         }
         else if (" * ".equals(operation))
         {
             result = firstNum * secondNum;
             answer = String.format("%.1f", result);
-            jTextField2.setText (String.valueOf(firstNum) + "*" + String.valueOf(secondNum));
-            jTextField1.setText(answer);
+            jTextField1.setText (String.valueOf(firstNum) + "*" + String.valueOf(secondNum));
+            jTextField2.setText(answer);
         }
         else if (" / ".equals(operation))
         {
             result = firstNum / secondNum;
             answer = String.format("%.1f", result);
-            jTextField2.setText (String.valueOf(firstNum) + "/" + String.valueOf(secondNum));
-            jTextField1.setText(answer);
+            jTextField1.setText (String.valueOf(firstNum) + "/" + String.valueOf(secondNum));
+            jTextField2.setText(answer);
         }
         else if (" % ".equals(operation)) {
             result = firstNum % secondNum;
             answer = String.format("%.1f", result);
-            jTextField2.setText (String.valueOf(firstNum) + "%" + String.valueOf(secondNum));
-            jTextField1.setText(answer);
+            jTextField1.setText (String.valueOf(firstNum) + "%" + String.valueOf(secondNum));
+            jTextField2.setText(answer);
         }
         else if (" x^y ".equals(operation)) {
             result = 1;
             for (int i = 0; i < secondNum; i++) {
                 result = firstNum * result;
             }
-            jTextField2.setText(String.valueOf(firstNum) + "^" + String.valueOf(secondNum));
+            jTextField1.setText(String.valueOf(firstNum) + "^" + String.valueOf(secondNum));
             answer = String.format("%.1f", result);
             
-            jTextField1.setText(answer);
+            jTextField2.setText(answer);
         }
     }//GEN-LAST:event_jButton20ActionPerformed
     
@@ -863,18 +878,48 @@ public class ScientificCalculatorGui extends javax.swing.JFrame {
         jTextField2.setText(String.valueOf(firstNum)+ "%");
     }//GEN-LAST:event_jButton28ActionPerformed
     
-    //Button for log
+    //Button for log x
     private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
         // TODO add your handling code here:
         double operation = Double.parseDouble(jTextField1.getText());
         jTextField2.setText("log("+String.valueOf(jTextField1.getText()));
         operation = Math.log10(operation);
-        jTextField1.setText(String.valueOf(operation));
+        jTextField2.setText(String.valueOf(operation));
     }//GEN-LAST:event_jButton45ActionPerformed
 
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
         // TODO add your handling code here:
+        double operation = Double.parseDouble(jTextField1.getText());
+        jTextField2.setText("log("+String.valueOf(jTextField1.getText()));
+        operation = Math.log(operation) / Math.log(2);
+        jTextField2.setText(String.valueOf(operation));
     }//GEN-LAST:event_jButton44ActionPerformed
+    
+    //Button for floor function
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        double operation = Double.parseDouble(jTextField1.getText());
+        jTextField2.setText(String.valueOf(jTextField1.getText()));
+        operation = Math.floor(operation);
+        jTextField2.setText(String.valueOf(operation));
+    }//GEN-LAST:event_jButton6ActionPerformed
+    
+    //Button for ceiling function
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        double operation = Double.parseDouble(jTextField1.getText());
+        jTextField2.setText(String.valueOf(jTextField1.getText()));
+        operation = Math.ceil(operation);
+        jTextField2.setText(String.valueOf(operation));
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        // TODO add your handling code here:
+        double operation = Double.parseDouble(jTextField1.getText());
+        jTextField2.setText(String.valueOf(jTextField1.getText()));
+        operation = Math.cbrt(operation);
+        jTextField2.setText(String.valueOf(operation));
+    }//GEN-LAST:event_jButton29ActionPerformed
 
     /**
      * @param args the command line arguments
